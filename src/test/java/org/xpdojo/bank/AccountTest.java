@@ -10,8 +10,29 @@ public class AccountTest {
 
     @Test
     public void initialAccount_shouldHaveZeroBalance(){
-
         assertThat(emptyAccount().balance()).isEqualTo(0);
     }
 
+    @Test
+    public void depositAmount_increaseAmountByValue() {
+        Account account = emptyAccount();
+        account.deposit(25);
+        assertThat(account.balance()).isEqualTo(25);
+    }
+
+
+    @Test
+    public void depositAmount_addMultipleAmounts() {
+        Account account = emptyAccount();
+        account.deposit(25);
+        account.deposit(50);
+        assertThat(account.balance()).isEqualTo(75);
+    }
+
+    @Test
+    public void depositAmount_depositNegativeAmount() {
+        Account account = emptyAccount();
+        account.deposit(-25);
+        assertThat(account.balance()).isEqualTo(25);
+    }
 }
