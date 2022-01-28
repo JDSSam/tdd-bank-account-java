@@ -2,7 +2,7 @@ package org.xpdojo.bank;
 
 public class Account {
 
-    private int balance;
+    private float balance;
 
     public static Account emptyAccount(){
         return new Account();
@@ -12,11 +12,11 @@ public class Account {
 
     }
 
-    public int balance() {
+    public float balance() {
         return balance;
     }
 
-    public void deposit(int amount){
+    public void deposit(float amount){
         if(amount > 0 ) {
             balance += amount;
         }

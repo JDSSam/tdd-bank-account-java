@@ -16,32 +16,39 @@ public class AccountTest {
     @Test
     public void depositAmount_increaseAmountByValue() {
         Account account = emptyAccount();
-        account.deposit(25);
-        assertThat(account.balance()).isEqualTo(25);
+        account.deposit(25f);
+        assertThat(account.balance()).isEqualTo(25f);
     }
 
 
     @Test
     public void depositAmount_addMultipleAmounts() {
         Account account = emptyAccount();
-        account.deposit(25);
-        account.deposit(50);
-        assertThat(account.balance()).isEqualTo(75);
+        account.deposit(25f);
+        account.deposit(50f);
+        assertThat(account.balance()).isEqualTo(75f);
     }
 
     @Test
     public void depositAmount_depositNegativeAmount() {
         Account account = emptyAccount();
-        account.deposit(-25);
+        account.deposit(-25f);
         assertThat(account.balance()).isEqualTo(0);
     }
 
     @Test
     public void depositAmount_depositPositiveNegativeAmount() {
         Account account = emptyAccount();
-        account.deposit(-25);
-        account.deposit(25);
-        assertThat(account.balance()).isEqualTo(25);
+        account.deposit(-25f);
+        account.deposit(25f);
+        assertThat(account.balance()).isEqualTo(25f);
+    }
+
+    @Test
+    public void depositAmount_depositFractionAmount() {
+        Account account = emptyAccount();
+        account.deposit(25.1f);
+        assertThat(account.balance()).isEqualTo(25.1f);
     }
 
 }
