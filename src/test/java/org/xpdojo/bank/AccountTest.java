@@ -33,6 +33,15 @@ public class AccountTest {
     public void depositAmount_depositNegativeAmount() {
         Account account = emptyAccount();
         account.deposit(-25);
+        assertThat(account.balance()).isEqualTo(0);
+    }
+
+    @Test
+    public void depositAmount_depositPositiveNegativeAmount() {
+        Account account = emptyAccount();
+        account.deposit(-25);
+        account.deposit(25);
         assertThat(account.balance()).isEqualTo(25);
     }
+
 }
