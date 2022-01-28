@@ -30,14 +30,14 @@ public class AccountTest {
     }
 
     @Test
-    public void depositAmount_depositNegativeAmount() {
+    public void depositAmount_negativeAmount() {
         Account account = emptyAccount();
         account.deposit(-25f);
         assertThat(account.balance()).isEqualTo(0);
     }
 
     @Test
-    public void depositAmount_depositPositiveNegativeAmount() {
+    public void depositAmount_positiveNegativeAmount() {
         Account account = emptyAccount();
         account.deposit(-25f);
         account.deposit(25f);
@@ -45,10 +45,12 @@ public class AccountTest {
     }
 
     @Test
-    public void depositAmount_depositFractionAmount() {
+    public void depositAmount_fractionAmount() {
         Account account = emptyAccount();
         account.deposit(25.1f);
         assertThat(account.balance()).isEqualTo(25.1f);
     }
+
+
 
 }
